@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>Blood Alone</name>
   <author>BloodAlone contributors</author>
-  <packageId>bloodalone.food-removal</packageId>
+  <packageId>bloodalone.foodremoval</packageId>
   <supportedVersions><li>1.7</li></supportedVersions>
   <modDependencies>
     <li><packageId>brrainz.harmony</packageId><displayName>Harmony</displayName><steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl></li>
