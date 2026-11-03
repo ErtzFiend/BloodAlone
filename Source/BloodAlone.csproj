@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>BloodAlone</AssemblyName>
+    <RootNamespace>BloodAlone</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\Assemblies\</OutputPath>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!-- Reference assemblies from RimWorld installation and Harmony mod -->
+  <ItemGroup>
+    <!-- Provide RimWorldPath or rely on local / Steam default paths -->
+    <Reference Include="0Harmony">
+      <HintPath Condition="'$(HarmonyPath)' != ''">$(HarmonyPath)\0Harmony.dll</HintPath>
+      <HintPath Condition="'$(HarmonyPath)' == ''">C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\839005762\1.7\Assemblies\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath Condition="'$(RimWorldPath)' != ''">$(RimWorldPath)\Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="'$(RimWorldPath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RimWorld">
+      <HintPath Condition="'$(RimWorldPath)' != ''">$(RimWorldPath)\RimWorld.dll</HintPath>
+      <HintPath Condition="'$(RimWorldPath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorld.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

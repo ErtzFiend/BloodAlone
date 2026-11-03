@@ -1,0 +1,18 @@
+# Ignore compiled build artifacts and temporary files
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Exclude third-party or game copyrighted assemblies if dropped in locally
+Assemblies/0Harmony.dll
+Assemblies/Assembly-CSharp*.dll
+Assemblies/UnityEngine*.dll
+Assemblies/Verse*.dll
+Assemblies/RimWorld*.dll
