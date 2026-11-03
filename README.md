@@ -6,7 +6,7 @@ Experimental Harmony patch for RimWorld 1.7: suppresses the ordinary Food need (
 
 - **Experimental Mod**: Developed targeting RimWorld 1.7 and Harmony 1.7.
 - **Harmony Binding**: Verified via standalone test harness (`Tools/harness.cs` & `Tools/harness.ps1`) confirming `PatchAll` resolves and successfully attaches to target RimWorld methods (`Pawn_NeedsTracker.ShouldHaveNeed` and `Pawn_GeneTracker.ExposeData`).
-- **Gameplay Status**: **In-game behavior and gameplay have NOT been tested.** Live-game stability, starvation proxy interactions, and extended colony play remain unverified.
+- **Gameplay Status**: **Gameplay verified by user testing.** The user reported the mod functions properly in active gameplay. Extended edge-case interactions, high mod-count environments, and exhaustive multi-scenario tests have not been independently evaluated.
 
 ## Compatibility & Limitations
 
@@ -20,7 +20,8 @@ Experimental Harmony patch for RimWorld 1.7: suppresses the ordinary Food need (
 ```
 BloodAlone/
 ├── About/
-│   └── About.xml             # RimWorld mod metadata
+│   ├── About.xml             # RimWorld mod metadata
+│   └── Preview.png           # Mod preview banner/artwork
 ├── Assemblies/
 │   └── BloodAlone.dll        # Compiled mod assembly (excludes game copyrighted DLLs)
 ├── Source/
