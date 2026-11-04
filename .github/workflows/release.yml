@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify compiled assembly
+        run: |
+          if [ ! -f "Assemblies/BloodAlone.dll" ]; then
+            echo "Assemblies/BloodAlone.dll missing!"
+            exit 1
+          fi
+          # Check size and sha256 to ensure genuine artifact is present
+          sha256sum Assemblies/BloodAlone.dll
+
+      - name: Package Release
+        run: |
+          mkdir -p staging/BloodAlone/About staging/BloodAlone/Assemblies
+          cp -r About/* staging/BloodAlone/About/
+          cp Assemblies/BloodAlone.dll staging/BloodAlone/Assemblies/
+          cd staging
+          zip -r ../BloodAlone.zip BloodAlone
+          cd ..
+          unzip -l BloodAlone.zip
+          sha256sum BloodAlone.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: BloodAlone.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
